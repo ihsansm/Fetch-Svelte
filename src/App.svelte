@@ -4,7 +4,7 @@
 
 <body>
   <main>
-    <h1>Aplikasi Svelte Saya</h1>
+    <h1>Aplikasi Svelte gweh</h1>
     <TodoFetch />
   </main>
 </body>
