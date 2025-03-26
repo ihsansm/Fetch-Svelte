@@ -1,1 +1,4 @@
-# This repo is no longer maintained. Consider using `npm init vite` and selecting the `svelte` option
+# This repo is no longer maintained.
+
+Free online Fake rest Api with JSON format:
+https://jsonplaceholder.typicode.com/
