@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte';
+  import '$lib/styles/global.css';
   
   // Deklarasi variabel untuk menyimpan data
   let todo = null;
@@ -151,13 +152,13 @@
 
 <!-- trigger button -->
 <div class="button-group">
-  <button on:click={fetchTodo} class={currentView === 'todo' ? 'active' : ''}>
+  <button on:click={() => fetchTodo(1)} class={currentView === 'todo' ? 'active' : ''}>
     Fetch Todo Data
   </button>
-  <button on:click={fetchPost} class={currentView === 'post' ? 'active' : ''}>
+  <button on:click={() => fetchPost(1)} class={currentView === 'post' ? 'active' : ''}>
     Fetch Post Data
   </button>
-  <button on:click={fetchComments} class={currentView === 'comment' ? 'active' : ''}>
+  <button on:click={() => fetchComments(1)} class={currentView === 'comment' ? 'active' : ''}>
     Fetch Comment Data
   </button>
   <button on:click={() => fetchUsers(1)} class={currentView === 'user' ? 'active' : ''}>
@@ -172,7 +173,31 @@
     <span class="user-counter">User {currentUserId} of {maxUserId}</span>
     <button on:click={nextUser} class="nav-button">Next User →</button>
   </div>
-  
+{/if}
+{#if currentView === 'comment'}
+<div class="user-navigation">
+  <button on:click={prevUser} class="nav-button">← Previous User</button>
+  <span class="user-counter">User {currentUserId} of {maxUserId}</span>
+  <button on:click={nextUser} class="nav-button">Next User →</button>
+</div>
+{/if}
+
+{#if currentView === 'todo'}
+<div class="user-navigation">
+  <button on:click={prevUser} class="nav-button">← Previous User</button>
+  <span class="user-counter">User {currentUserId} of {maxUserId}</span>
+  <button on:click={nextUser} class="nav-button">Next User →</button>
+</div>
+{/if}
+
+{#if currentView === 'post'}
+<div class="user-navigation">
+  <button on:click={prevUser} class="nav-button">← Previous User</button>
+  <span class="user-counter">User {currentUserId} of {maxUserId}</span>
+  <button on:click={nextUser} class="nav-button">Next User →</button>
+</div>
+{/if}
+
   <!-- Direct access to specific user -->
   <div class="user-direct-access">
     <p>Go to User: </p>
@@ -187,7 +212,6 @@
       {/each}
     </div>
   </div>
-{/if}
 
 {#if loading}
   <div class="loading-container">

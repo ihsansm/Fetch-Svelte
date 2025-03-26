@@ -8,7 +8,6 @@
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
     <a href="/about/team">Team</a>
-    <a href="/about/secret">Secret</a>
   </nav>
   <TodoFetch />
   <slot />
@@ -16,7 +15,7 @@
 
 <style>
   main {
-    margin: 0 auto;
+    height: 100%;
     padding: 20px;
     font-family: Arial;
     background: #1c1e22;
