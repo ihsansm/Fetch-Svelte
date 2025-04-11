@@ -133,13 +133,6 @@
     const prevId = currentUserId <= 1 ? maxUserId : currentUserId - 1;
     fetchUsers(prevId);
   }
-  
-  // Function untuk mencari user dengan ID tertentu
-  function goToUser(id) {
-    // Pastikan ID berada dalam rentang yang valid
-    const validId = Math.max(1, Math.min(maxUserId, id));
-    fetchUsers(validId);
-  }
 
   // Eksekusi fetch todo begitu komponen dimount
   onMount(() => {
@@ -199,19 +192,7 @@
 {/if}
 
   <!-- Direct access to specific user -->
-  <div class="user-direct-access">
-    <p>Go to User: </p>
-    <div class="user-buttons">
-      {#each Array(maxUserId) as _, i}
-        <button 
-          on:click={() => goToUser(i + 1)}
-          class={currentUserId === i + 1 ? 'active' : ''}
-        >
-          {i + 1}
-        </button>
-      {/each}
-    </div>
-  </div>
+ 
 
 {#if loading}
   <div class="loading-container">
@@ -411,7 +392,7 @@ code {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 15px 0;
+  margin: 15px 0 60px;
 }
 
 .user-counter {
